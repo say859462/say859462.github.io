@@ -22,14 +22,14 @@
     var CONFIG = {"hostname":"say859462.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="🎓 Education        .face-container {   max-width: 200px;   width: 100%;   flex-shrink: 0;   border-radius: 12px;   overflow: hidden;   background-color: white;   padding: 4px;   transition: transform">
+  <meta name="description" content="🎓 Education    .face-container {   max-width: 200px;   height: 280px;  &#x2F;* 固定高度 *&#x2F;   width: 100%;   flex-shrink: 0;   border-radius: 12px;   overflow: hidden;   background-color: white;   transition:">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About Me">
 <meta property="og:url" content="https://say859462.github.io/about/index.html">
 <meta property="og:site_name" content="Che-Liang,Liu">
-<meta property="og:description" content="🎓 Education        .face-container {   max-width: 200px;   width: 100%;   flex-shrink: 0;   border-radius: 12px;   overflow: hidden;   background-color: white;   padding: 4px;   transition: transform">
+<meta property="og:description" content="🎓 Education    .face-container {   max-width: 200px;   height: 280px;  &#x2F;* 固定高度 *&#x2F;   width: 100%;   flex-shrink: 0;   border-radius: 12px;   overflow: hidden;   background-color: white;   transition:">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://say859462.github.io/images/face_2.jpg">
+<meta property="og:image" content="https://say859462.github.io/images/face_0.png">
 <meta property="og:image" content="https://say859462.github.io/images/Ado.jpg">
 <meta property="og:image" content="https://say859462.github.io/images/Yoasobi.jpg">
 <meta property="og:image" content="https://say859462.github.io/images/Jay.jpg">
@@ -42,10 +42,10 @@
 <meta property="og:image" content="https://say859462.github.io/images/emo_5.png">
 <meta property="og:image" content="https://say859462.github.io/images/emo_6.png">
 <meta property="article:published_time" content="2025-07-07T04:10:45.000Z">
-<meta property="article:modified_time" content="2025-09-14T09:34:15.711Z">
+<meta property="article:modified_time" content="2025-09-14T11:06:24.343Z">
 <meta property="article:author" content="Che-Liang,Liu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://say859462.github.io/images/face_2.jpg">
+<meta name="twitter:image" content="https://say859462.github.io/images/face_0.png">
 
 <link rel="canonical" href="https://say859462.github.io/about/">
 
@@ -189,87 +189,70 @@
       <div class="post-body">
           <h2 id="🎓-Education">🎓 Education</h2>
 <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
-  <!-- 頭像 -->
-  <style>
+<!-- 頭像 -->
+<style>
 .face-container {
   max-width: 200px;
+  height: 280px;  /* 固定高度 */
   width: 100%;
   flex-shrink: 0;
   border-radius: 12px;
   overflow: hidden;
   background-color: white;
-  padding: 4px;
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
-
-.face-container:hover {
-  transform: scale(1.05);
+.face-wrapper {
+  width: 100%;
+  height: 100%;       /* 填滿容器高度 */
+  display: flex;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  overflow: hidden;
 }
-
+.face-container:hover { transform: scale(1.05); }
 .face-container img {
   border-radius: 8px;
-  display: block;
   width: 100%;
-  height: auto;
-  transition: opacity 0.5s ease-in-out;
+  height: 100%;
+  object-fit: cover;
+  background-color: white; /* 填補透明區域 */
+  transition: opacity 0.3s ease-in-out;
 }
 </style>
 <div class="face-container">
-  <img id="my-face" src="/images/face_2.jpg" alt="My Face">
+  <div class="face-wrapper">
+    <img id="my-face" src="/images/face_0.png" alt="My Face">
+  </div>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const myFace = document.getElementById('my-face');
-  if (!myFace) return;
+  const images = {
+    default: '/images/face_0.png',
+    hover: '/images/face_1.png',
+    pressed: '/images/face_2.png'
+  };
 
-  // 預載入圖片以避免閃爍
-  const preloadImages = ['/images/face_1.png', '/images/face_2.jpg'];
-  preloadImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
+  let isHover = false;
+  let isPressed = false;
 
-  // 監聽滑鼠移入事件
-  myFace.addEventListener('mouseenter', () => {
-    myFace.style.opacity = '0'; // 淡出
+  const updateFace = () => {
+    let target = isPressed ? images.pressed : isHover ? images.hover : images.default;
+    if (myFace.src.includes(target)) return;
+    myFace.style.opacity = '0';
     setTimeout(() => {
-      myFace.src = '/images/face_1.png'; // 變為 face_1
-      myFace.style.opacity = '1'; // 淡入
-    }, 250); // 這裡的數字要和 CSS 的 transition 時間一致
-  });
-
-  // 監聽滑鼠移出事件
-  myFace.addEventListener('mouseleave', () => {
-    myFace.style.opacity = '0'; // 淡出
-    setTimeout(() => {
-      myFace.src = '/images/face_0.png'; // 變回 face_0
-      myFace.style.opacity = '1'; // 淡入
+      myFace.src = target;
+      myFace.style.opacity = '1';
     }, 250);
-  });
+  };
 
-  // 監聽滑鼠按下左鍵事件
-  myFace.addEventListener('mousedown', () => {
-    myFace.style.opacity = '0'; // 淡出
-    setTimeout(() => {
-      myFace.src = '/images/face_2.jpg'; // 變為 face_2
-      myFace.style.opacity = '1'; // 淡入
-    }, 250);
-  });
-  
-  // 監聽滑鼠放開左鍵事件，以讓圖片變回 face_1
-  myFace.addEventListener('mouseup', () => {
-    myFace.style.opacity = '0'; // 淡出
-    setTimeout(() => {
-      // 確保滑鼠還在圖片上時，放開左鍵會變回 face_1
-      if (myFace.matches(':hover')) {
-        myFace.src = '/images/face_1.png';
-      } else {
-        // 如果放開左鍵時滑鼠已經離開圖片，則變回 face_0
-        myFace.src = '/images/face_0.png';
-      }
-      myFace.style.opacity = '1'; // 淡入
-    }, 250);
-  });
+  myFace.addEventListener('mouseenter', () => { isHover = true; updateFace(); });
+  myFace.addEventListener('mouseleave', () => { isHover = false; updateFace(); });
+  myFace.addEventListener('mousedown', () => { isPressed = true; updateFace(); });
+  myFace.addEventListener('mouseup', () => { isPressed = false; updateFace(); });
 });
 </script>
   <!-- 教育內容 -->
