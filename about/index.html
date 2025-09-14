@@ -22,18 +22,19 @@
     var CONFIG = {"hostname":"say859462.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="🎓 Education                                                     National Taiwan Ocean University (NTOU)            Department of Computer Science and Engineering           National Yang Ming Chiao Tu">
+  <meta name="description" content="🎓 Education        .face-container {   max-width: 200px;   width: 100%;   flex-shrink: 0;   border-radius: 12px;   overflow: hidden;   background-color: white;   padding: 4px;   transition: transform">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About Me">
 <meta property="og:url" content="https://say859462.github.io/about/index.html">
 <meta property="og:site_name" content="Che-Liang,Liu">
-<meta property="og:description" content="🎓 Education                                                     National Taiwan Ocean University (NTOU)            Department of Computer Science and Engineering           National Yang Ming Chiao Tu">
+<meta property="og:description" content="🎓 Education        .face-container {   max-width: 200px;   width: 100%;   flex-shrink: 0;   border-radius: 12px;   overflow: hidden;   background-color: white;   padding: 4px;   transition: transform">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://say859462.github.io/images/face.png">
+<meta property="og:image" content="https://say859462.github.io/images/face_2.jpg">
 <meta property="og:image" content="https://say859462.github.io/images/Ado.jpg">
 <meta property="og:image" content="https://say859462.github.io/images/Yoasobi.jpg">
 <meta property="og:image" content="https://say859462.github.io/images/Jay.jpg">
 <meta property="og:image" content="https://say859462.github.io/images/Punch.jpg">
+<meta property="og:image" content="https://say859462.github.io/images/contextseg_1.png">
 <meta property="og:image" content="https://say859462.github.io/images/emo_1.png">
 <meta property="og:image" content="https://say859462.github.io/images/emo_2.png">
 <meta property="og:image" content="https://say859462.github.io/images/emo_3.png">
@@ -41,10 +42,10 @@
 <meta property="og:image" content="https://say859462.github.io/images/emo_5.png">
 <meta property="og:image" content="https://say859462.github.io/images/emo_6.png">
 <meta property="article:published_time" content="2025-07-07T04:10:45.000Z">
-<meta property="article:modified_time" content="2025-09-08T11:23:12.708Z">
+<meta property="article:modified_time" content="2025-09-14T09:34:15.711Z">
 <meta property="article:author" content="Che-Liang,Liu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://say859462.github.io/images/face.png">
+<meta name="twitter:image" content="https://say859462.github.io/images/face_2.jpg">
 
 <link rel="canonical" href="https://say859462.github.io/about/">
 
@@ -189,16 +190,88 @@
           <h2 id="🎓-Education">🎓 Education</h2>
 <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
   <!-- 頭像 -->
-  <div style="max-width:200px; width:100%; flex-shrink:0;">
-    <div style="border-radius:12px; overflow:hidden; 
-                background-color:white;
-                padding:4px;
-                transition: transform 0.3s;">
-      <div style="border-radius:8px; overflow:hidden;">
-        <img src="/images/face.png" style="display:block; width:100%; height:auto;">
-      </div>
-    </div>
-  </div>
+  <style>
+.face-container {
+  max-width: 200px;
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  padding: 4px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.face-container:hover {
+  transform: scale(1.05);
+}
+
+.face-container img {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.5s ease-in-out;
+}
+</style>
+<div class="face-container">
+  <img id="my-face" src="/images/face_2.jpg" alt="My Face">
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const myFace = document.getElementById('my-face');
+  if (!myFace) return;
+
+  // 預載入圖片以避免閃爍
+  const preloadImages = ['/images/face_1.png', '/images/face_2.jpg'];
+  preloadImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  // 監聽滑鼠移入事件
+  myFace.addEventListener('mouseenter', () => {
+    myFace.style.opacity = '0'; // 淡出
+    setTimeout(() => {
+      myFace.src = '/images/face_1.png'; // 變為 face_1
+      myFace.style.opacity = '1'; // 淡入
+    }, 250); // 這裡的數字要和 CSS 的 transition 時間一致
+  });
+
+  // 監聽滑鼠移出事件
+  myFace.addEventListener('mouseleave', () => {
+    myFace.style.opacity = '0'; // 淡出
+    setTimeout(() => {
+      myFace.src = '/images/face_0.png'; // 變回 face_0
+      myFace.style.opacity = '1'; // 淡入
+    }, 250);
+  });
+
+  // 監聽滑鼠按下左鍵事件
+  myFace.addEventListener('mousedown', () => {
+    myFace.style.opacity = '0'; // 淡出
+    setTimeout(() => {
+      myFace.src = '/images/face_2.jpg'; // 變為 face_2
+      myFace.style.opacity = '1'; // 淡入
+    }, 250);
+  });
+  
+  // 監聽滑鼠放開左鍵事件，以讓圖片變回 face_1
+  myFace.addEventListener('mouseup', () => {
+    myFace.style.opacity = '0'; // 淡出
+    setTimeout(() => {
+      // 確保滑鼠還在圖片上時，放開左鍵會變回 face_1
+      if (myFace.matches(':hover')) {
+        myFace.src = '/images/face_1.png';
+      } else {
+        // 如果放開左鍵時滑鼠已經離開圖片，則變回 face_0
+        myFace.src = '/images/face_0.png';
+      }
+      myFace.style.opacity = '1'; // 淡入
+    }, 250);
+  });
+});
+</script>
   <!-- 教育內容 -->
   <div style="flex: 1; min-width: 250px;">
 <ul>
@@ -228,19 +301,33 @@ div[style*="transition: transform"]:hover {
 </style>
 <hr>
 <h2 id="👋-Introduction">👋 Introduction</h2>
-<p>Hi, I'm <strong>Jerry Liu (劉哲良)</strong>, currently a graduate student at <strong>NYCU</strong> in the <strong>CAIG Lab</strong>.</p>
-<p>Back in college, everyone used to call me "麻吉", "馬鈴薯" (in Taiwanese), or "麻古".  
-These nicknames came from my online name <strong>Mosmochi</strong> (especially the "mochi" part) and the fact that I often jokingly called someone "麻吉" (meaning "buddy"). Over time, I naturally became everyone's "麻吉".</p>
-<p>I really enjoy playing video games, especially single-player titles.</p>
-<p>Recently, I've been trying to build a reading habit, and I'm particularly interested in books about:</p>
-<ul>
-  <li>Personal finance</li>
-  <li>Self-help</li>
-  <li>Psychology</li>
-  <li>Biographies</li>
-</ul>
-<p>As for sports, I'm more into <strong>badminton</strong> and <strong>volleyball</strong>.</p>
-<p>Ciallo ～(∠・ω&lt;)⌒☆</p>
+<div style="max-width:700px; margin:auto; 
+            background:white; padding:20px 25px; 
+            border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); 
+            line-height:1.8; font-size:16px;">
+  <p>Hi, I'm <strong>Jerry Liu (劉哲良)</strong>, currently a graduate student at 
+     <strong>NYCU</strong> in the <strong>CAIG Lab</strong>.</p>
+  <p>
+    Back in college, friends used to call me 
+    <em>"麻吉"</em>, <em>"馬鈴薯"</em> (in Taiwanese), or <em>"麻古"</em>.  
+    These nicknames came from my online name <strong>Mosmochi</strong> 
+    and the fact that I often jokingly called someone "麻吉" (meaning "buddy").  
+    Over time, I naturally became everyone's "麻吉". 
+  </p>
+  <p>I really enjoy playing video games, especially single-player titles.</p>
+  <p>Recently, I've been trying to build a reading habit. I’m particularly interested in books about:
+  <ul style="margin:0 0 0 20px;">
+    <li>Personal finance</li>
+    <li>Self-help</li>
+    <li>Psychology</li>
+    <li>Biographies</li>
+  </ul>
+  </p>
+  <p>As for sports, I'm more into <strong>badminton</strong> and <strong>volleyball</strong>.</p>
+  <p style=" margin-top:25px; font-size:18px; color:#555;">
+    Ciallo ～(∠・ω&lt;)⌒☆
+  </p>
+</div>
 <hr>
 <h2 id="🎮-Interests">🎮 Interests</h2>
 <ul>
@@ -283,62 +370,123 @@ These nicknames came from my online name <strong>Mosmochi</strong> (especially t
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <h2 id="📝-Projects">📝 Projects</h2>
-<ul>
-<li><strong>Name: Emo App (Environmental Map piOneer Application)</strong></li>
-</ul>
-<!-- Swiper -->
-<div class="swiper mySwiper" style="width:50%; max-width:250px; margin:auto;">
+<!-- Swiper 容器 -->
+<div class="swiper mySwiper" style="width:90%; margin:auto;">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="/images/emo_1.png" style="width:100%; border-radius:8px;"></div>
-    <div class="swiper-slide"><img src="/images/emo_2.png" style="width:100%; border-radius:8px;"></div>
-    <div class="swiper-slide"><img src="/images/emo_3.png" style="width:100%; border-radius:8px;"></div>
-    <div class="swiper-slide"><img src="/images/emo_4.png" style="width:100%; border-radius:8px;"></div>
-    <div class="swiper-slide"><img src="/images/emo_5.png" style="width:100%; border-radius:8px;"></div>
-    <div class="swiper-slide"><img src="/images/emo_6.png" style="width:100%; border-radius:8px;"></div>
+    <!-- 專題1：ContextSeg -->
+    <div class="swiper-slide">
+      <div style="display:flex; align-items:center; gap:30px; flex-wrap:wrap; justify-content:center; padding:20px; box-sizing:border-box;">
+        <!-- ContextSeg 圖片輪播 -->
+        <div style="flex:0 0 250px; max-width:250px;">
+          <div class="swiper contextSegSwiper" style="border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/images/contextseg_1.png" style="width:100%; height:auto;"></div>
+              <!-- 可以加更多圖片 -->
+            </div>
+          </div>
+        </div>
+        <!-- ContextSeg 文字說明 -->
+        <div style="flex:1; min-width:250px; line-height:1.8;">
+          <h3 style="margin:0 0 8px 0; font-size:18px;">ContextSeg: Sketch Semantic Segmentation</h3>
+          <ul style="list-style:none; padding-left:0; margin:0; font-size:16px; line-height:1.6;">
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">📌</span>
+              <div>PyTorch-based project for sketch semantic segmentation</div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">📌</span>
+              <div>Reproduction & optimization of ContextSeg paper's two-stage architecture</div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">📌</span>
+              <div>Converted original TensorFlow codebase to modern PyTorch framework</div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">📌</span>
+              <div>Achieved SOTA performance on cluttered strokes</div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">🔗</span>
+              <div><a href="https://github.com/say859462/Summer_NYCU_DLP_2025_FINAL_PROJECT" target="_blank" style="color:#1976d2; font-weight:bold;">GitHub</a></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 專題2：Emo App -->
+    <div class="swiper-slide">
+      <div style="display:flex; align-items:center; gap:30px; flex-wrap:wrap; justify-content:center; padding:20px; box-sizing:border-box;">
+        <!-- Emo App 圖片輪播 -->
+        <div style="flex:0 0 250px; max-width:250px;">
+          <div class="swiper emoSwiper" style="border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/images/emo_1.png" style="width:100%; height:auto;"></div>
+              <div class="swiper-slide"><img src="/images/emo_2.png" style="width:100%; height:auto;"></div>
+              <div class="swiper-slide"><img src="/images/emo_3.png" style="width:100%; height:auto;"></div>
+              <div class="swiper-slide"><img src="/images/emo_4.png" style="width:100%; height:auto;"></div>
+              <div class="swiper-slide"><img src="/images/emo_5.png" style="width:100%; height:auto;"></div>
+              <div class="swiper-slide"><img src="/images/emo_6.png" style="width:100%; height:auto;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Emo App 文字說明 -->
+        <div style="flex:1; min-width:250px; line-height:1.8;">
+          <h3 style="margin:0 0 8px 0; font-size:18px;">Emo App (Environmental Map piOneer Application)</h3>
+          <ul style="list-style:none; padding-left:0; margin:0; font-size:16px; line-height:1.6;">
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">🥇</span>
+              <div>1st Place - Department Project Competition <span style="display:block; color:#555;">(系上專題競賽)</span></div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">🥇</span>
+              <div>1st Place - Summer Learning Practical Experience Program <span style="display:block; color:#555;">(海大大暑計畫資訊組)</span></div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">🏅</span>
+              <div>Honorable Mention - NTU Climate Change Innovation Competition <span style="display:block; color:#555;">(臺大氣候變遷創意競賽)</span></div>
+            </li>
+            <li style="margin-bottom:10px; display:grid; grid-template-columns:25px 1fr; gap:5px;">
+              <span style="text-align:center;">🎖️</span>
+              <div>Finalist - International ICT Innovative Services Awards <span style="display:block; color:#555;">(大專院校資服競賽)</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- 分頁器 -->
   <div class="swiper-pagination"></div>
 </div>
-<ul>
-<li>
-<p><strong>Awards:</strong></p>
-<ul>
-<li>
-<p>🥇 <strong>1st Place</strong><br>
-Department Project Competition (系上專題競賽)</p>
-</li>
-<li>
-<p>🥇 <strong>1st Place</strong><br>
-Summer Learning Practical Experience Program<br>
-(College of Electrical Engineering and Computer Science)<br>
-(海洋大學大暑計畫電資學院)</p>
-</li>
-<li>
-<p>🏅 Honorable Mention<br>
-National Taiwan University’s Climate Change Creative Implementation Competition<br>
-(氣候變遷創意實作競賽)</p>
-</li>
-<li>
-<p>🎖️ Finalist<br>
-College &amp; University Information Application Service Innovation Competition<br>
-(大專校院資訊應用服務創新競賽)</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
 <script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,               
-    autoplay: {               
-      delay: 3000,
+  // 外層專題切換
+  const mainSwiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
       disableOnInteraction: false,
     },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
-    // 手機滑動自動支援，不用額外設定
+  });
+
+  // Emo App 內部輪播
+  const emoSwiper = new Swiper(".emoSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+  });
+
+  // ContextSeg 內部輪播
+  const contextSegSwiper = new Swiper(".contextSegSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
   });
 </script>
 
@@ -402,7 +550,7 @@ College &amp; University Information Application Service Innovation Competition<
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%93-Education"><span class="nav-number">1.</span> <span class="nav-text">🎓 Education</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%91%8B-Introduction"><span class="nav-number">2.</span> <span class="nav-text">👋 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AE-Interests"><span class="nav-number">3.</span> <span class="nav-text">🎮 Interests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%B5-Singers"><span class="nav-number">4.</span> <span class="nav-text">🎵 Singers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9D-Projects"><span class="nav-number">5.</span> <span class="nav-text">📝 Projects</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%93-Education"><span class="nav-number">1.</span> <span class="nav-text">🎓 Education</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%91%8B-Introduction"><span class="nav-number">2.</span> <span class="nav-text">👋 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AE-Interests"><span class="nav-number">3.</span> <span class="nav-text">🎮 Interests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%B5-Singers"><span class="nav-number">4.</span> <span class="nav-text">🎵 Singers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9D-Projects"><span class="nav-number">5.</span> <span class="nav-text">📝 Projects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">ContextSeg: Sketch Semantic Segmentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.2.</span> <span class="nav-text">Emo App (Environmental Map piOneer Application)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
