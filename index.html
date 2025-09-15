@@ -150,6 +150,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW,en,default">
+    <link itemprop="mainEntityOfPage" href="https://say859462.github.io/2025/09/15/Who_Am_I/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Che-Liang,Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Che-Liang,Liu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/09/15/Who_Am_I/" class="post-title-link" itemprop="url">What's That Pokemon</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2025-09-15 16:19:17 / 修改時間：20:13:47" itemprop="dateCreated datePublished" datetime="2025-09-15T16:19:17+08:00">2025-09-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="What-Is-That-Pokemon">What Is That Pokemon</h3>
+<style>
+.pokemon-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pokemon {
+  width: 200px;      /* 固定寬度 */
+  height: 200px;     /* 固定高度 */
+  object-fit: fill;  /* 強制拉伸，不留白 */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 滑鼠移上去放大 */
+.pokemon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+</style>
+<div class="pokemon-container">
+  <!-- Q1 -->
+  <img src="/images/Q1.png" class="pokemon"
+       onclick="toggleImage(this, '/images/Q1.png', '/images/A1.png')">
+  <!-- Q2 -->
+<p><img src="/images/Q3.png" class="pokemon"
+       onclick="toggleImage(this, '/images/Q3.png', '/images/A3.png')"></p>
+  <!-- Q3 -->
+<p><img src="/images/Q2.png" class="pokemon"
+       onclick="toggleImage(this, '/images/Q2.png', '/images/A2.png')"></p>
+  <!-- Q4 (gif) -->
+<p><img src="/images/Q4.png" class="pokemon"
+       onclick="toggleImage(this, '/images/Q4.png', '/images/A4.gif')"></p>
+</div>
+<script>
+function toggleImage(img, questionSrc, answerSrc) {
+  if (img.dataset.toggled === "true") {
+    img.src = questionSrc;
+    img.dataset.toggled = "false";
+  } else {
+    img.src = answerSrc;
+    img.dataset.toggled = "true";
+  }
+}
+</script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW,en,default">
     <link itemprop="mainEntityOfPage" href="https://say859462.github.io/2025/07/07/Those-games-I-ve-ever-played/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,7 +480,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

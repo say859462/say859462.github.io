@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>What&#39;s That Pokemon</title>
+      <link href="/2025/09/15/Who_Am_I/"/>
+      <url>/2025/09/15/Who_Am_I/</url>
+      
+        <content type="html"><![CDATA[<h3 id="What-Is-That-Pokemon">What Is That Pokemon</h3><style>.pokemon-container {  display: flex;  gap: 20px;  flex-wrap: wrap;}.pokemon {  width: 200px;      /* 固定寬度 */  height: 200px;     /* 固定高度 */  object-fit: fill;  /* 強制拉伸，不留白 */  border: 2px solid #ccc;  border-radius: 8px;  cursor: pointer;  transition: transform 0.25s ease, box-shadow 0.25s ease;}/* 滑鼠移上去放大 */.pokemon:hover {  transform: scale(1.1);  box-shadow: 0 8px 16px rgba(0,0,0,0.2);}</style><div class="pokemon-container">  <!-- Q1 -->  <img src="/images/Q1.png" class="pokemon"       onclick="toggleImage(this, '/images/Q1.png', '/images/A1.png')">  <!-- Q2 --><p><img src="/images/Q3.png" class="pokemon"       onclick="toggleImage(this, '/images/Q3.png', '/images/A3.png')"></p>  <!-- Q3 --><p><img src="/images/Q2.png" class="pokemon"       onclick="toggleImage(this, '/images/Q2.png', '/images/A2.png')"></p>  <!-- Q4 (gif) --><p><img src="/images/Q4.png" class="pokemon"       onclick="toggleImage(this, '/images/Q4.png', '/images/A4.gif')"></p></div><script>function toggleImage(img, questionSrc, answerSrc) {  if (img.dataset.toggled === "true") {    img.src = questionSrc;    img.dataset.toggled = "false";  } else {    img.src = answerSrc;    img.dataset.toggled = "true";  }}</script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Those games I&#39;ve ever played</title>
       <link href="/2025/07/07/Those-games-I-ve-ever-played/"/>
       <url>/2025/07/07/Those-games-I-ve-ever-played/</url>
