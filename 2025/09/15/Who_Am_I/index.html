@@ -30,11 +30,8 @@
 <meta property="og:description" content="What Is That Pokemon">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://say859462.github.io/images/Q1.png">
-<meta property="og:image" content="https://say859462.github.io/images/Q3.png">
-<meta property="og:image" content="https://say859462.github.io/images/Q2.png">
-<meta property="og:image" content="https://say859462.github.io/images/Q4.png">
 <meta property="article:published_time" content="2025-09-15T08:19:17.000Z">
-<meta property="article:modified_time" content="2025-09-15T13:57:34.168Z">
+<meta property="article:modified_time" content="2025-09-16T02:35:57.730Z">
 <meta property="article:author" content="Che-Liang,Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://say859462.github.io/images/Q1.png">
@@ -182,10 +179,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2025-09-15 16:19:17 / 修改時間：21:57:34" itemprop="dateCreated datePublished" datetime="2025-09-15T16:19:17+08:00">2025-09-15</time>
+              <time title="創建時間：2025-09-15 16:19:17" itemprop="dateCreated datePublished" datetime="2025-09-15T16:19:17+08:00">2025-09-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-09-16 10:35:57" itemprop="dateModified" datetime="2025-09-16T10:35:57+08:00">2025-09-16</time>
+              </span>
 
           
 
@@ -203,53 +206,82 @@
 <style>
 .pokemon-container {
   display: flex;
-  flex-direction: column; /* 改直向排列 */
-  gap: 20px;              /* 圖片上下間距 */
-  align-items: center;    /* 水平置中 */
-  justify-content: center;/* 垂直置中（要整頁置中時用） */
-  min-height: 100vh;      /* 讓容器至少佔滿整個螢幕高度 */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 20px;
 }
 
 .pokemon {
   width: 300px;
   height: 300px;
-  object-fit: fill;  /* 拉伸圖片，不留白 */
+  object-fit: fill;
   border: 2px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* 滑鼠移上去放大 */
+/* hover 放大 + 換答案圖 */
 .pokemon:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
+
+.next-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.next-btn:hover {
+  background-color: #45a049;
+}
 </style>
 <div class="pokemon-container">
-  <!-- Q1 -->
-  <img src="/images/Q1.png" class="pokemon"
-       onclick="toggleImage(this, '/images/Q1.png', '/images/A1.png')">
-  <!-- Q2 -->
-<p><img src="/images/Q3.png" class="pokemon"
-       onclick="toggleImage(this, '/images/Q3.png', '/images/A3.png')"></p>
-  <!-- Q3 -->
-<p><img src="/images/Q2.png" class="pokemon"
-       onclick="toggleImage(this, '/images/Q2.png', '/images/A2.png')"></p>
-  <!-- Q4 (gif) -->
-<p><img src="/images/Q4.png" class="pokemon"
-       onclick="toggleImage(this, '/images/Q4.png', '/images/A4.gif')"></p>
+  <img id="pokemon-img" class="pokemon" src="/images/Q1.png"
+       data-question="/images/Q1.png" data-answer="/images/A1.png">
+  <button id="next-btn" class="next-btn">下一張 ➡️</button>
 </div>
 <script>
-function toggleImage(img, questionSrc, answerSrc) {
-  if (img.dataset.toggled === "true") {
-    img.src = questionSrc;
-    img.dataset.toggled = "false";
-  } else {
-    img.src = answerSrc;
-    img.dataset.toggled = "true";
-  }
+const images = [
+  { q: "/images/Q1.png", a: "/images/A1.png" },
+  { q: "/images/Q3.png", a: "/images/A3.png" },
+  { q: "/images/Q2.png", a: "/images/A2.png" },
+  { q: "/images/Q4.png", a: "/images/A4.gif" }
+];
+
+let currentIndex = 0;
+const img = document.getElementById("pokemon-img");
+const nextBtn = document.getElementById("next-btn");
+
+// 初始化
+function loadImage(index) {
+  img.src = images[index].q;
+  img.dataset.question = images[index].q;
+  img.dataset.answer = images[index].a;
 }
+loadImage(currentIndex);
+
+// hover 顯示答案，移開顯示題目
+img.addEventListener("mouseenter", () => {
+  img.src = img.dataset.answer;
+});
+img.addEventListener("mouseleave", () => {
+  img.src = img.dataset.question;
+});
+
+// 按鈕切換下一張
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  loadImage(currentIndex);
+});
 </script>
 
     </div>
